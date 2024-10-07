@@ -7,13 +7,7 @@
     "skipLibCheck": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["./*"],
-      "@app/*": ["app/*"],
-      "@pages/*": ["pages/*"],
-      "@widgets/*": ["widgets/*"],
-      "@features/*": ["features/*"],
-      "@entities/*": ["entities/*"],
-      "@shared/*": ["shared/*"]
+      "@/*": ["./*"]
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -22,7 +16,6 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
 
     /* Linting */
     "strict": true,

@@ -4,30 +4,30 @@ import * as path from "node:path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react({
-      jsxImportSource: "@emotion/react",
-      babel: {
-        plugins: ["@emotion/babel-plugin"],
-      },
-    }),
-  ],
+  plugins: [react()],
   css: {
     preprocessorOptions: {
       scss: {
         api: "modern",
+        additionalData: `@import "@/app/styles/variables.scss";`,
+      },
+    },
+  },
+  build: {
+    target: "esnext",
+    minify: "esbuild",
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+        },
       },
     },
   },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "@app": path.resolve(__dirname, "./src/app"),
-      "@pages": path.resolve(__dirname, "./src/pages"),
-      "@widgets": path.resolve(__dirname, "./src/widgets"),
-      "@features": path.resolve(__dirname, "./src/features"),
-      "@entities": path.resolve(__dirname, "./src/entities"),
-      "@shared": path.resolve(__dirname, "./src/shared"),
     },
   },
 });
